@@ -50,12 +50,10 @@ public class AddOneServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        rows = 0;
         //7、相应数据
-        Map<String, String> mapp = new HashMap<>();
         resp.setContentType("application/json;charset=utf-8");
-        mapp.put("rows", String.valueOf(rows));
-        resp.getWriter().write(mapp.toString());
+        resp.getWriter().write(String.valueOf(rows));
 
 
     }

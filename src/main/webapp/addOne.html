@@ -9,7 +9,12 @@
             // 提交表单，增加一条数据
             $("#addOneForm").submit(function () {
                 $.post("/addOneServlet", $(this).serialize(), function (data) {
-                    window.location.href="news.html";
+                    alert(data);
+
+                    if (data != "0") {
+                        window.location.href = "news.html";
+
+                    }
 
                 });
 

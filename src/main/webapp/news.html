@@ -21,15 +21,39 @@
 
             });
 
-            $("#addOne").click(function () {
-                $.post("/addOneServlet", );
-            });
-
         })
     </script>
+    <style>
+        table{
+            margin:0 auto;
+            border-collapse:collapse;
+        }
+        table tr th{
+            height:28px;
+            line-height:28px;
+            background:#f0f7ff;
+            border:1px solid #429fff;
+        }
+        table tr td{
+            height:28px;
+            width:120px;
+            border:1px solid #429fff;
+        }
+        table tr:nth-child(odd){
+            background-color:#d2e8ff;
+        }
+        table tr:hover{
+            background-color:#CCC;
+        }
+        #add {
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
 <div>
+    <a id="add" href="addOne.html"  style="font-size: 20px;">添加一条新闻</a>
+
     <table id="news_content" width="800px" border="1" cellpadding="10">
         <tr>
             <th>序号</th>
@@ -37,10 +61,11 @@
             <th>内容</th>
             <th>查看人数</th>
             <th>发布时间</th>
+            <th>操作</th>
         </tr>
     </table>
 
-    <a href="addOne.html">添加一条新闻</a>
+
 
 </div>
 
