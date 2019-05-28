@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            // 提交表单，增加一条数据
+            $("#addOneForm").submit(function () {
+                $.post("/addOneServlet", $(this).serialize(), function (data) {
+                    window.location.href="news.html";
+
+                });
+
+            })
+        })
+
+
+    </script>
+
+</head>
+<body>
+<div>
+    <form id="addOneForm" action="news.html">
+        标题：<input type="text" name="title"/>
+        内容：<input type="text" name="content"/>
+        <input type="submit" value="提交">
+    </form>
+</div>
+</body>
+</html>

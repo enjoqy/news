@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--导入jquery-->
+    <script src="js/jquery-3.3.1.js"></script>
+
+    <script>
+
+        function getQueryVariable(variable) {
+            //window.location.search获取URL路径?及其后面的字符串
+            var query = window.location.search.substr(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                    return pair[1];
+                }
+            }
+            return (false);
+        }
+
+        var id = getQueryVariable("id");
+
+
+        $(function () {
+            $.post("/getOneServlet", {id:id}, function (data) {
+                $("#title").append(data.title);
+                $("#reportTime").append(data.reportTime);
+                $("#content").append(data.content);
+            });
+        })
+    </script>
+
+</head>
+<body>
+<h3><a href="news.html">返回首页</a></h3>
+<h1 id="title"></h1>
+<h6 id="reportTime">发表于： </h6>
+<p id="content"></p>
+
+
+</body>
+</html>
